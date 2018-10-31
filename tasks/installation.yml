@@ -1,0 +1,30 @@
+---
+ - name: create apt-cacher-ng fs
+   zfs:
+    name: zfs/apt-cacher-ng
+    state: present
+    extra_zfs_properties:
+      compression: lz4
+      mountpoint: legacy
+   when: ansible-role-apt-cacher-ng-zfsmnt is defined
+
+ - name: bind mount apt-cacher-ng
+   mount:
+     src: zfs/apt-cacher-ng
+     path: /var/cache/apt-cacher-ng
+     fstype: zfs
+     state: mounted
+   when: ansible-role-apt-cacher-ng-zfsmnt is defined
+
+ - name: set permissions
+   file:
+     path: /var/cache/apt-cacher-ng
+     owner: apt-cacher-ng
+     group: apt-cacher-ng
+   when: ansible-role-apt-cacher-ng-zfsmnt is defined
+
+ - name: install apt-cacher-ng
+   package:
+     name: apt-cacher-ng
+
+

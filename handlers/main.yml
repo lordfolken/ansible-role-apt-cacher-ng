@@ -1,0 +1,5 @@
+---
+ - name: reload_aptcacherng
+   service:
+     name: apt-cacher-ng
+     state: restarted

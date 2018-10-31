@@ -1,0 +1,26 @@
+ - name: install backend for debian-security
+   copy:
+     src: backends_debian_security
+     dest: /var/lib/apt-cacher-ng/
+   notify: reload_aptcacherng
+
+ - name: configure opensuse repos
+   copy:
+     content: "download.opensuse.org"
+     dest: "/etc/apt-cacher-ng/{{ item }}"
+   with_items:
+     - backends_opensuse
+     - opensuse_mirrors
+   notify: reload_aptcacherng
+
+ - name: configure apt-cacher-ng
+   template:
+     src: acng.conf.j2
+     dest: /etc/apt-cacher-ng/acng.conf
+   notify: reload_aptcacherng
+
+ - name: start service
+   service:
+     name: apt-cacher-ng
+     enabled: true
+     state: started
