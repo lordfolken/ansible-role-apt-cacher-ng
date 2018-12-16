@@ -1,5 +1,5 @@
 ---
  - name: reload_aptcacherng
    service:
-     name: apt-cacher-ng
+     name: '{{ acgn_servicename }}'
      state: restarted

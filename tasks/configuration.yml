@@ -1,7 +1,7 @@
- - name: install backend for debian-security
+ - name: install backend for debian-security 
    copy:
      src: backends_debian_security
-     dest: /var/lib/apt-cacher-ng/
+     dest: '{{ acgn_cachepath }}'
    notify: reload_aptcacherng
 
  - name: configure opensuse repos
@@ -21,6 +21,6 @@
 
  - name: start service
    service:
-     name: apt-cacher-ng
+     name: '{{ acgn_servicename }}'
      enabled: true
      state: started

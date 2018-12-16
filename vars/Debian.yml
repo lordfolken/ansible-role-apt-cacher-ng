@@ -1,0 +1,6 @@
+acgn_packages: 
+  - apt-cacher-ng
+acgn_cachepath: '/var/cache/apt-cacher-ng' 
+acgn_servicename: apt-cacher-ng
+acgn_uid: 123
+acgn_gid: 133
