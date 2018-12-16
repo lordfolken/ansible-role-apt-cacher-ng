@@ -1,24 +1,4 @@
 ---
- - group:
-     name: apt-cacher-ng
-     gid: '{{ acgn_gid }}'
-
- - user:
-     name: apt-cacher-ng
-     shell: '/bin/false'
-     uid: '{{ acgn_uid }}'
-     group: apt-cacher-ng
-     home: '{{ acgn_cachepath }}'
-     system: yes
-
- - name: directory for caching
-   file:
-     state: directory
-     owner: apt-cacher-ng 
-     group: apt-cacher-ng 
-     path: '{{ acgn_cachepath }}'
-
- - name: install apt-cacher-ng
-   package:
-     name: '{{ item }}'
-   with_items: '{{ acgn_packages }}'
+ - name: install zfs dkms
+   apt:
+     name: zfs-dkms 
