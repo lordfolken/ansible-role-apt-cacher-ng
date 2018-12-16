@@ -1,12 +1,10 @@
 ---
  - group:
      name: apt-cacher-ng
-     gid: '{{ acgn_gid }}'
 
  - user:
      name: apt-cacher-ng
      shell: '/bin/false'
-     uid: '{{ acgn_uid }}'
      group: apt-cacher-ng
      home: '{{ acgn_cachepath }}'
      system: yes

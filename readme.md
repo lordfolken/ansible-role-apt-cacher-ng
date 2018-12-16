@@ -21,4 +21,4 @@ filesystem or another directory.
 
 Notes: 
 ------
-Currently the role assumes that uid 123 and gid 133 are the apt-cacher-ng user/group ids.
+n/a
