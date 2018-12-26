@@ -1,8 +1,10 @@
 ---
- - group:
+ - name: ensure apt-cacher-ng group
+   group:
      name: apt-cacher-ng
 
- - user:
+ - name: create apt-cacher-ng user
+   user:
      name: apt-cacher-ng
      shell: '/bin/false'
      group: apt-cacher-ng
@@ -12,8 +14,8 @@
  - name: directory for caching
    file:
      state: directory
-     owner: apt-cacher-ng 
-     group: apt-cacher-ng 
+     owner: apt-cacher-ng
+     group: apt-cacher-ng
      path: '{{ acgn_cachepath }}'
 
  - name: install apt-cacher-ng
