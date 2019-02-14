@@ -19,6 +19,23 @@
      dest: /etc/apt-cacher-ng/acng.conf
    notify: reload_aptcacherng
 
+ - name: create directory for systemd customization
+   file:
+     path: '/etc/systemd/system/apt-cacher-ng.service.d'
+     state: directory
+
+
+ - name: create systemd override file for network target
+   copy:
+     src: override.conf  
+     dest: "/etc/systemd/system/apt-cacher-ng.service.d/override.conf"
+   register: override
+
+ - name: reload systemd on service
+   systemd:
+     daemon_reload: true
+   when: override.changed
+
  - name: start service
    service:
      name: '{{ acgn_servicename }}'
