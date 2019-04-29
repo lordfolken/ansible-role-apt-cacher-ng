@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: Philipp Wollschlegel
+  description: apt-cacher-ng configuration for debian and opensuse
+  license: GPL
+  min_ansible_version: 2.2 
+  platforms:
+  - name: Debian
+    versions:
+    - 8
+    - 9 
+    - 10
+  categories:
+  - apt
+  - apt-cacher-ng
+  - opensuse
+  - repository
+  - debian
+dependencies: []
