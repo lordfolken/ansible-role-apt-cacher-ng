@@ -16,4 +16,5 @@ galaxy_info:
   - opensuse
   - repository
   - debian
-dependencies: []
+dependencies:
+  - ansible-role-zfs 
